@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+  margin-bottom: 8px;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chatList {
+  width: 30%;
+}
+
+.header, .chatList, .chat-screen {
+  border: 1px solid rgba(62, 95, 138, .4);
+  border-radius: 10px;
+  background: rgba(0, 100 ,0, .1);
+}
