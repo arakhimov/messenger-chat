@@ -1,4 +1,4 @@
-import {Chat} from '../../types';
+import {Chat} from '../types';
 
 // получение случайной даты с 2019.01.01
 function randomDate(start:Date, end:Date) {
@@ -9,7 +9,7 @@ function randomDate(start:Date, end:Date) {
   }
 }
 
-const initialChats: Array<Chat> = [
+export const initialChats: Chat[] = [
   {
     urlImage: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
     name: 'Архыз',
@@ -321,5 +321,3 @@ const initialChats: Array<Chat> = [
     ]
   }
 ];
-
-export default initialChats;
