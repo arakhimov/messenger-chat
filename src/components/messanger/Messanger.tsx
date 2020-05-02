@@ -1,22 +1,29 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './Messanger.css';
 import {ChatList} from '../chatList/ChatList';
-import initialChats from '../initialChats/initialChats';
+import {initialChats} from '../../data/initialChats';
 import {Chat} from '../chat/Chat';
-import {Message} from '../../types';
 
-const chats = initialChats;
-chats.forEach(item => {item.messages.sort((a, b) => b.date.day.localeCompare(a.date.day))});
-chats.sort((a, b) => b.messages[0].date.day.localeCompare(a.messages[0].date.day));
+// const chats = initialChats;
+// Делал это перепресваивание из-за концепции чистых функций, чтобы не изменять входные данные.
 
-export class Messanger extends React.Component {
+type Message = {
+  date: {
+     day: string,
+     time: string,
+  },
+  author: string,
+  text: string,
+}
+
+export class Messanger extends Component {
 
   state = {
     messageList: [],
     idActiveChat: ''
   };
 
-  handleChatActive(nameChat:string, messagesChat: Array<Message>) {
+  handleChatActive = (nameChat:string, messagesChat: Message[]): void => {
     this.setState({
       idActiveChat: nameChat,
       messageList: messagesChat
@@ -28,7 +35,7 @@ export class Messanger extends React.Component {
       <div className="messanger">
         <header className="header">Header</header>
         <main className="main">
-        <ChatList handlerChatList = {this.handleChatActive.bind(this)} state = {this.state} chats={chats} />  
+        <ChatList handlerChatList = {this.handleChatActive} activeChat = {this.state} chats={initialChats} />  
         <Chat messages = {this.state.messageList}/>
         </main>
       </div>

@@ -12,5 +12,5 @@ export type Message = {
 export type Chat = {
    urlImage: string,
    name: string,
-   messages: Array<Message>,
+   messages: Message[],
 };
