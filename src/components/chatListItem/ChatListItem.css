@@ -6,6 +6,7 @@
   border-radius: 10px;
   background: rgba(171, 207, 253, 0.2);
   font-size: .9rem;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .chatListItem.chatListItem_active {
@@ -46,12 +47,21 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: .8rem;
 }
 
 .chatListItem__author {
   margin-right: 5px;
+  font-size: .8rem;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 5px;
 }
 
 .chatListItem__date {
-  font-size: .8rem;
+  font-size: .7rem;
+  margin-top: 4px;
+}
+
+.chatListItem__name {
+  font-weight: 600;
 }

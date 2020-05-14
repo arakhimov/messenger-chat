@@ -1,4 +1,4 @@
 import React from 'react';
 import {Messanger} from '../messanger/Messanger';
 
-export const App = () => {return(<div><Messanger /></div>)}
+export const App = () => (<div><Messanger /></div>);

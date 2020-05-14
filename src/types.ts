@@ -1,16 +1,25 @@
-// сообщение в чате
 export type Message = {
-   date: {
-      day: string,
-      time: string,
-   },
+   date: number,
    author: string,
    text: string,
 }
+export type User = {
+   login: string,
+   avatarUrl: string
+}
 
-// чат
-export type Chat = {
+export type chatListProps = {
    urlImage: string,
    name: string,
-   messages: Message[],
-};
+   id: string,
+   user: string,
+   date: number,
+   lastMessageText: string 
+}
+
+export type messageListProps = {
+   [key: string] : {
+      users: User[],
+      messages: Message[]
+   }
+ }

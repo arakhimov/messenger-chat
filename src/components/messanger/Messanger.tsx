@@ -1,43 +1,76 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './Messanger.css';
-import {ChatList} from '../chatList/ChatList';
-import {initialChats} from '../../data/initialChats';
-import {Chat} from '../chat/Chat';
+import { chatList } from '../../data/chatList';
+import { messageList } from '../../data/messageList';
+import { ChatList } from '../chatList/ChatList';
+import { Chat } from '../chat/Chat';
+import { BrowserRouter as Router, Route, RouteComponentProps } from 'react-router-dom';
+import { User, Message } from '../../types'; 
+import { authorOwnProperties } from '../../data/authorOwnProperties';
 
-// const chats = initialChats;
-// Делал это перепресваивание из-за концепции чистых функций, чтобы не изменять входные данные.
+for (let chat in messageList) {
+  messageList[chat]?.messages.sort((a: Message, b: Message) => b.date - a.date);
+}
 
-type Message = {
-  date: {
-     day: string,
-     time: string,
-  },
-  author: string,
-  text: string,
+for (let chat of chatList) {
+  chat.date = messageList[chat.id]?.messages[0]?.date;
+  chat.lastMessageText = messageList[chat.id]?.messages[0]?.text;
+}
+
+chatList.sort((a, b) => b.date - a.date);
+
+type stateType = {
+  messagesChat: {users: User[], messages: Message[]},
+  idActiveChat: string,
 }
 
 export class Messanger extends Component {
 
-  state = {
-    messageList: [],
-    idActiveChat: ''
+  state: stateType = {
+    messagesChat: { users: [], messages: [] },
+    idActiveChat: '',
   };
 
-  handleChatActive = (nameChat:string, messagesChat: Message[]): void => {
-    this.setState({
+  handleChatActive = (nameChat:string): void => {
+    this.setState(({
       idActiveChat: nameChat,
-      messageList: messagesChat
-    });
+      messagesChat: {
+        users: [authorOwnProperties].concat(messageList[nameChat].users),
+        messages: messageList[nameChat].messages
+      }
+    }));
+  }
+
+  addMessage = (message: string) => { 
+    const now = new Date();
+    this.setState((prevState: stateType) => ({
+      messagesChat : {
+        users: prevState.messagesChat.users,
+        messages: prevState.messagesChat.messages.concat({
+          date: now.getTime(), 
+          author: authorOwnProperties.login, 
+          text: message
+        })
+      }
+    }));
   }
 
   render() {
     return (
       <div className="messanger">
-        <header className="header">Header</header>
-        <main className="main">
-        <ChatList handlerChatList = {this.handleChatActive} activeChat = {this.state} chats={initialChats} />  
-        <Chat messages = {this.state.messageList}/>
-        </main>
+        <Router>
+          <header className="header">Header</header>
+          <main className="main">
+            <Route path='/chat' render = {(props: RouteComponentProps) => (<ChatList {...props} 
+              chats = {chatList} 
+              idActiveChat = {this.state.idActiveChat} 
+              handleChatActive = {this.handleChatActive} />
+            )} />
+            <Route path='/' render = {(props: RouteComponentProps) => 
+               (<Route path={props.location.pathname}><Chat chatItem = {this.state.messagesChat} addMessage = {this.addMessage} /></Route>)
+            }/>
+          </main>
+        </Router>
       </div>
     );
   }
