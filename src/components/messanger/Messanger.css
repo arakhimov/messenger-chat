@@ -1,10 +1,33 @@
 .header {
+  padding-left: 20px;
+  padding-right: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   min-height: 60px;
   margin-bottom: 8px;
 }
+
+.header__title {
+  margin-left: 40px;
+  text-transform: uppercase;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  letter-spacing: 1rem;
+  font-size: 1rem;
+}
+.header__subtitle {
+  text-transform: uppercase;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 1px solid rgba(0, 0, 0, .4);
+  border-radius: 5px;
+  background: rgba(171, 207, 253, .8);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 
 .main {
   display: flex;
@@ -18,5 +41,5 @@
 .header, .chatList, .chat-screen {
   border: 1px solid rgba(62, 95, 138, .4);
   border-radius: 10px;
-  background: rgba(0, 100 ,0, .1);
+  background: rgba(0, 100, 0, .1);
 }

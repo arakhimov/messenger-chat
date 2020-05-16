@@ -1,0 +1,30 @@
+.FormRegistration {
+  width: 100%;
+  height: calc(80vh - 90px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15%;
+  border: 1px solid rgba(62, 95, 138, .4);
+  border-radius: 10px;
+  background: rgba(0, 100, 0, .1);
+}
+
+.FormRegistration__input-login, .FormRegistration__input-password, .FormRegistration__button {
+  width: 40%;
+  box-sizing: border-box;
+  min-height: 50px;
+  padding: 10px;
+  border: 1px solid rgba(62, 95, 138, .4);
+  border-radius: 10px;
+}
+
+.FormRegistration__input-login, .FormRegistration__input-password {
+  margin-bottom: 20px;
+  background: rgba(171, 207, 253, 0.2);
+}
+
+.FormRegistration__button {
+  background: rgba(171, 207, 253, .8);
+  cursor: pointer;
+}
