@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import './ChatListItem.css';
 import { chatListProps } from '../../types';
 import { RouteComponentProps } from "react-router-dom";
@@ -15,10 +15,10 @@ type ChatListProps = {
   chats: chatListProps[],
 }
 
-export class ChatListItem extends React.Component<ChatListItemProps & ChatListProps & RouteComponentProps> {
+export class ChatListItem extends Component<ChatListItemProps & ChatListProps & RouteComponentProps> {
 
   handleClick(id: string) {
-    this.props.history.push(`${this.props.match.url}/${this.props.chat.id}`);
+    this.props.history.push(`/middle.react.praktikum.yandex/chat/${this.props.chat.id}`);
     this.props.handlerChat(id);
   }
 

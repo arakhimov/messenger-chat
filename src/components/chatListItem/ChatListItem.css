@@ -60,6 +60,7 @@
 .chatListItem__date {
   font-size: .7rem;
   margin-top: 4px;
+  text-align: end;
 }
 
 .chatListItem__name {

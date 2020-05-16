@@ -11,21 +11,37 @@ export class FormAddMessage extends Component<FormAddMessageProps> {
     newMessage: ''
   }
 
-  handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    this.setState({newMessage: event.target.value})
+  handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    this.setState({newMessage: event.target.value});
+  }
+
+  handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.keyCode === 13 && !event.shiftKey) {
+      event.preventDefault();
+      this.props.addMessage(this.state.newMessage);
+      this.setState({newMessage: ''});
+    }
   }
 
   handleSubmit = (event: FormEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    this.props.addMessage(this.state.newMessage);
-    this.setState({newMessage: ''});
+    if (this.state.newMessage.length !== 0) {
+      event.preventDefault();
+      this.props.addMessage(this.state.newMessage);
+      this.setState({newMessage: ''});
+    }
   }
+
   
   render() {
     return(
-      <form action="" className="formAddMessage">
-        <input type="text" value={this.state.newMessage} onChange={this.handleChange} className="formAddMessage__input"/>
-        <button type="submit" onClick={this.handleSubmit} className="formAddMessage__button">Add message</button>
+      <form className="formAddMessage">
+        <textarea 
+          value={this.state.newMessage} 
+          onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
+          className="formAddMessage__input"
+          required />
+        <button type="submit" onClick={this.handleSubmit} className="formAddMessage__button">Add<br />message</button>
       </form>
     )
   }

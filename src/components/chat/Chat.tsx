@@ -25,10 +25,7 @@ const AuthorAvatar: React.FC<AuthorAvatarProps> = ({message, currentAuthor, user
     alt="" className="message__author-image"/>)
 
 export type ChatProps = {
-  chatItem: {
-    users: User[],
-    messages: Message[]
-  },
+  chatItem: { users: User[], messages: Message[] },
   addMessage: (value: string) => void
 }
 
@@ -69,7 +66,7 @@ export class Chat extends Component<ChatProps> {
           )})}
           {this.setMessage('', 0)}
         </div>
-        <FormAddMessage addMessage={addMessage} />    
+        {(messages.length !== 0) && <FormAddMessage addMessage = {addMessage} />}    
       </div>
     );
   }

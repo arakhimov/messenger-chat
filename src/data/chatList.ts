@@ -13,7 +13,7 @@ export const chatList: chatListProps[] = [
     urlImage: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
     name: 'Челябинская область',
     id: '0002',
-    user: 'monstr',
+    user: 'ryoka',
     date: 0,
     lastMessageText: ''
   },
@@ -29,7 +29,7 @@ export const chatList: chatListProps[] = [
     urlImage: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
     name: 'Камчатка',
     id: '0004',
-    user: 'monstr',
+    user: 'ryoka',
     date: 0,
     lastMessageText: ''
   },
@@ -45,7 +45,7 @@ export const chatList: chatListProps[] = [
     urlImage: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
     name: 'Байкал',
     id: '0006',
-    user: 'monstr',
+    user: 'ryoka',
     date: 0,
     lastMessageText: ''
   },
@@ -61,7 +61,7 @@ export const chatList: chatListProps[] = [
     urlImage: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/tulinovka.jpg',
     name: 'Тулиновка',
     id: '0008',
-    user: 'monstr',
+    user: 'ryoka',
     date: 0,
     lastMessageText: ''
   },
@@ -77,7 +77,7 @@ export const chatList: chatListProps[] = [
     urlImage: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/vladivostok.jpg',
     name: 'Владивосток',
     id: '0010',
-    user: 'monstr',
+    user: 'ryoka',
     date: 0,
     lastMessageText: ''
   },
@@ -93,7 +93,7 @@ export const chatList: chatListProps[] = [
     urlImage: 'https://img.freepik.com/free-photo/_24972-737.jpg?size=626&ext=jpg',
     name: 'Empty',
     id: '0012',
-    user: 'monstr',
+    user: 'ryoka',
     date: 0,
     lastMessageText: ''
   }
