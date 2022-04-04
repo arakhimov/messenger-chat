@@ -23,3 +23,13 @@ export type messageListProps = {
       messages: Message[]
    }
  }
+
+ export type ChatProps = {
+   chatItem: { users: User[], messages: Message[] },
+   addMessage: (value: string) => void
+ }
+ 
+ export type chatStateProps = {
+   currentDate: number,
+   author: string
+ }
